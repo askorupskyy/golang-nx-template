@@ -42,3 +42,9 @@ Thumbs.db
 
 # Next.js
 .next
+.env
+.nx
+
+*/**/schema.json
+
+libs/api/client/src/lib/build

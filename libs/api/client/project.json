@@ -5,13 +5,8 @@
   "projectType": "library",
   "tags": [],
   "targets": {
-    "build": {
-      "dependsOn": [
-        {
-          "projects": ["api-router"],
-          "target": "build-schema"
-        }
-      ],
+    "codegen": {
+      "dependsOn": ["api-router:build"],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "libs/api/client",
@@ -23,6 +18,34 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/api/client/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "build": {
+      "dependsOn": ["codegen"],
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "main": "libs/api/client/src/index.ts",
+        "outputPath": "dist/libs/api/client",
+        "outputFileName": "main.js",
+        "tsConfig": "libs/api/client/tsconfig.lib.json",
+        "assets": [
+          {
+            "glob": "libs/api/client/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ],
+        "platform": "node"
+      },
+      "configurations": {
+        "development": {
+          "minify": false
+        },
+        "production": {
+          "minify": true
+        }
       }
     }
   }

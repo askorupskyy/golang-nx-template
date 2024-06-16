@@ -1,9 +1,9 @@
 'use client';
 
-import { useCreateUser } from '@/api-client';
+import { api } from '@/api-client';
 
 export default function Index() {
-  const { mutate } = useCreateUser();
+  const { mutate } = api.users.useCreateUser();
 
   const handleClick = () => {
     console.log('ttrrr');

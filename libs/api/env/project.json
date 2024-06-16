@@ -1,14 +1,15 @@
 {
-  "name": "api-router",
+  "name": "api-env",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/api/router",
+  "sourceRoot": "libs/api/env",
   "targets": {
-    "build": {
-      "executor": "nx:run-commands",
+    "test": {
+      "executor": "@nx-go/nx-go:test",
       "options": {
-        "command": "go run ./create-schema/main.go",
-        "cwd": "libs/api/router"
+        "cover": true,
+        "race": true,
+        "verbose": true
       }
     },
     "lint": {

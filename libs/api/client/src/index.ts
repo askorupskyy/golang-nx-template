@@ -1,2 +1,5 @@
-export * from './lib/api-client';
-export * from './lib/build/api/endpoints/client';
+import * as users from './lib/build/api/users/users';
+
+export const api = {
+  users,
+};

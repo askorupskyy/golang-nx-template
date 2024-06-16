@@ -8,18 +8,22 @@
       "executor": "@nx-go/nx-go:build",
       "options": {
         "outputPath": "dist/apps/api",
-        "main": "apps/api/main.go"
+        "main": "{projectRoot}/main.go"
       }
     },
     "serve": {
-      "executor": "nx:run-commands",
+      "executor": "@nx-go/nx-go:serve",
       "options": {
-        "command": "air server",
-        "cwd": "apps/api"
+        "main": "{projectRoot}/main.go"
       }
     },
     "test": {
-      "executor": "@nx-go/nx-go:test"
+      "executor": "@nx-go/nx-go:test",
+      "options": {
+        "cover": true,
+        "race": true,
+        "verbose": true
+      }
     },
     "lint": {
       "executor": "@nx-go/nx-go:lint"

@@ -6,9 +6,10 @@ import (
 	"net/http/httptest"
 	"os"
 
-	"github.com/askorupskyy/go-next-template/libs/api/router"
 	"github.com/labstack/echo"
 	"github.com/pangpanglabs/echoswagger/v2"
+
+	"go-next-template/api/router"
 )
 
 func main() {
