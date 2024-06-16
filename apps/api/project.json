@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/api",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx-go/nx-go:build",
@@ -28,6 +29,5 @@
     "lint": {
       "executor": "@nx-go/nx-go:lint"
     }
-  },
-  "tags": []
+  }
 }

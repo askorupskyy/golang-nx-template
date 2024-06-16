@@ -40,9 +40,9 @@ func CreateApiRouter() echoswagger.ApiRoot {
 
 	g := r.Group("Users", "/users")
 
-	g.GET("/", getUsers).
-		SetOperationId("getUsers").
-		AddResponse(http.StatusOK, "successful", []User{}, nil)
+	// g.GET("/", getUsers).
+	// 	SetOperationId("getUsers").
+	// 	AddResponse(http.StatusOK, "successful", []User{}, nil)
 
 	g.GET("/:id", getUserById).
 		SetOperationId("getUserById").

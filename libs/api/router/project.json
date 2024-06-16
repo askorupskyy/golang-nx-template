@@ -8,6 +8,7 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "go run ./create-schema/main.go",
+        "outputPath": "dist/libs/api/router",
         "cwd": "libs/api/router"
       }
     },

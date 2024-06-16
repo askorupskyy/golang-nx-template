@@ -14,7 +14,6 @@ import (
 
 func main() {
 	r := api_router.CreateApiRouter()
-	f, err := os.Create("./schema.json")
 
 	req := httptest.NewRequest(echo.GET, "/doc", nil)
 	rec := httptest.NewRecorder()
@@ -25,15 +24,17 @@ func main() {
 		log.Fatal(err)
 	}
 
-	defer f.Close()
-
 	json, err := json.MarshalIndent(spec, "", "\t")
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	_, err = f.Write(json)
+	err = os.WriteFile("../../../dist/libs/api/router/schema.json", json, 0755)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	os.Exit(0)
 }

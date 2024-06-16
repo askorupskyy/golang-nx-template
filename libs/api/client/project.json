@@ -9,8 +9,8 @@
       "dependsOn": ["api-router:build"],
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "libs/api/client",
-        "command": "orval --config=./src/lib/orval.config.ts"
+        "cwd": "libs/api/client/src/lib",
+        "command": "orval --config=./orval.config.ts"
       }
     },
     "lint": {

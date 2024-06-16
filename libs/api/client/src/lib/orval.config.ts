@@ -14,7 +14,7 @@ export default defineConfig({
       baseUrl: 'http://localhost:1323',
     },
     input: {
-      target: '../../../router/schema.json',
+      target: '../../../../../dist/libs/api/router/schema.json',
     },
   },
 });
