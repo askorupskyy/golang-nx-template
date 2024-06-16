@@ -1,0 +1,47 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Project APIs",
+		"version": ""
+	},
+	"paths": {
+		"/users": {
+			"post": {
+				"operationId": "createUser",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "User input struct",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/User"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "successful"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"User": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string",
+					"xml": {
+						"name": "Name"
+					},
+					"format": "string"
+				}
+			},
+			"xml": {
+				"name": "User"
+			}
+		}
+	}
+}

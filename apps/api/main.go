@@ -1,12 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"github.com/askorupskyy/go-next-template/libs/api/router"
 
-func Hello(name string) string {
-	result := "Hello " + name
-	return result
-}
+	"github.com/labstack/echo/v4/middleware"
+)
 
 func main() {
-	fmt.Println(Hello("api"))
+	// ApiRoot with Echo instance
+	r := api_router.CreateApiRouter()
+
+	r.Echo().Use(middleware.CORS())
+
+	// Start server
+	r.Echo().Logger.Fatal(r.Echo().Start(":1323"))
 }

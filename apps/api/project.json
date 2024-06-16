@@ -14,7 +14,7 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "air",
+        "command": "air server",
         "cwd": "apps/api"
       }
     },

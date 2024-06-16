@@ -16,11 +16,11 @@ tmp_dir = "tmp"
   include_dir = []
   include_ext = ["go", "tpl", "tmpl", "html"]
   include_file = []
-  kill_delay = "0s"
+  kill_delay = 10
   log = "build-errors.log"
   poll = false
   poll_interval = 0
-  pre_cmd = ["swag init && npm exec openapi-typescript docs/swagger.yaml -- -o ../../libs/api/clients/next/types/src/lib/types.d.ts"]
+  pre_cmd = []
   post_cmd = []
   rerun = false
   rerun_delay = 500
@@ -39,7 +39,7 @@ tmp_dir = "tmp"
   time = false
 
 [misc]
-  clean_on_exit = false
+  clean_on_exit = true
 
 [screen]
   clear_on_rebuild = false

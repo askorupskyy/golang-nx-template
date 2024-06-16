@@ -1,0 +1,29 @@
+{
+  "name": "api-client",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/api/client/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "dependsOn": [
+        {
+          "projects": ["api-router"],
+          "target": "build-schema"
+        }
+      ],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/api/client",
+        "command": "orval --config=./src/lib/orval.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/client/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
